@@ -33,7 +33,7 @@ This code is provided as a experimental implementation for testing purposes and 
 
 1. Clone a copy of the main git repository and its submodules by running:
 	```
-	git clone --recursive git://github.com/encryptogroup/PSI
+	git clone --recursive https://github.com/bluetrickpt/PSI
 	```
 
 2. Enter the Framework directory: `cd PSI/`
