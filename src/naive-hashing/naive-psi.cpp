@@ -85,10 +85,10 @@ uint32_t naivepsi(role_type role, uint32_t neles, uint32_t pneles, task_ctx ectx
 #endif
 	snd_and_rcv(hashes, neles * maskbytelen, phashes, pneles * maskbytelen, tmpsock);
 
-	/*cout << "Hashes of my elements: " << endl;
+	cout << "Hashes of my elements: " << endl;
 	for(i = 0; i < neles; i++) {
 		for(uint32_t j = 0; j < maskbytelen; j++) {
-			cout << (hex) << (uint32_t) hashes[i * maskbytelen + j] << (dec);
+			cout << (hex) << setw(2) << setfill('0') << (uint32_t)hashes[i * maskbytelen + j] << (dec);
 		}
 		cout << endl;
 	}
@@ -99,7 +99,7 @@ uint32_t naivepsi(role_type role, uint32_t neles, uint32_t pneles, task_ctx ectx
 			cout << (hex) << (uint32_t) phashes[i * maskbytelen + j] << (dec);
 		}
 		cout << endl;
-	}*/
+	}
 #ifdef DEBUG
 	cout << "Finding intersection" << endl;
 #endif
