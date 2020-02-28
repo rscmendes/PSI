@@ -87,7 +87,7 @@ int32_t psi_demonstrator(int32_t argc, char** argv) {
 	gettimeofday(&t_end, NULL);
 
 
-	if(role == CLIENT) {
+	if(role == CLIENT || protocol == NAIVE) {
 		cout << "Computation finished. Found " << intersect_size << " intersecting elements:" << endl;
 		if(!detailed_timings) {
 			for(i = 0; i < intersect_size; i++) {
