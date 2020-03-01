@@ -36,6 +36,13 @@ void server_routine(uint32_t nclients, CSocket* socket, bool cardinality) {
 		temp = sizeof(uint8_t) * neles[i] * maskbytelen;
 		csets[i] = (uint8_t*) malloc(temp);
 		sockfds[i].Receive(csets[i], temp);
+		cout << "Server received the following elements from client " << i << ": " << endl;
+		for(j = 0; j < neles[i]; j++) {
+			for(uint32_t k = 0; k < maskbytelen; k++) {
+				cout << (hex) << setw(2) << setfill('0') << (uint32_t)csets[i][j * maskbytelen + k] << (dec);
+			}
+			cout << endl;
+		}
 	}
 #ifndef BATCH
 	cout << "Computing intersection for the clients" << endl;
