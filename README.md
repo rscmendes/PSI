@@ -1,3 +1,5 @@
+This fork is to be used in a pratical assignment of a security and privacy course. It does not add anything to the original repo, except some additional outputs to the console for learning purposes.
+
 # Private Set Intersection (PSI)
 
 ### Faster Private Set Intersection Based on OT Extension
