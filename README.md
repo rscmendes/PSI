@@ -1,3 +1,5 @@
+This fork is to be used in a pratical assignment of a security and privacy course. It does not add anything to the original repo, except some additional outputs to the console for learning purposes.
+
 # Private Set Intersection (PSI)
 
 ### Faster Private Set Intersection Based on OT Extension
@@ -33,7 +35,7 @@ This code is provided as a experimental implementation for testing purposes and 
 
 1. Clone a copy of the main git repository and its submodules by running:
 	```
-	git clone --recursive git://github.com/encryptogroup/PSI
+	git clone --recursive https://github.com/bluetrickpt/PSI
 	```
 
 2. Enter the Framework directory: `cd PSI/`

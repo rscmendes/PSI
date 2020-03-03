@@ -102,7 +102,7 @@ int32_t benchroutine(int32_t argc, char** argv) {
 
 
 #else
-	cout << "Required time:\t" << fixed << std::setprecision(1) << getMillies(begin, end)/1000 << " s" << endl;
+	cout << "Required time:\t" << fixed << std::setprecision(2) << getMillies(begin, end)/1000 << " s" << endl;
 	cout << "Data sent:\t" <<	((double)bytes_sent)/mbfac << " MB" << endl;
 	cout << "Data received:\t" << ((double)bytes_received)/mbfac << " MB" << endl;
 #endif
