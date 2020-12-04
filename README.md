@@ -20,7 +20,7 @@ This code is provided as a experimental implementation for testing purposes and 
 ### Requirements
 ---
 
-* A **Linux distribution** of your choice (the code was developed and tested with recent versions of [Ubuntu](http://www.ubuntu.com/)).
+* A **Linux distribution** of your choice.
 * **Required packages:**
   * [`g++`](https://packages.debian.org/testing/g++)
   * [`make`](https://packages.debian.org/testing/make)
@@ -30,6 +30,20 @@ This code is provided as a experimental implementation for testing purposes and 
 
   Install these packages with your favorite package manager, e.g, `sudo apt-get install <package-name>`.
 
+  The compilation might fail in newer operative systems (for newer versions of g++/gcc). With ubuntu 20.04 you can follow these steps.
+  * `sudo apt install gcc-7 g++-7`
+  * `sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 7`
+  * `sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 7`
+  * `sudo update-alternatives --config gcc  # select the option with gcc-7 if necessary`
+  * `sudo update-alternatives --config g++  # select the option with g++-7 if necessary`
+
+  After building the project (next step), you can revert back to the latest version of gcc and g++ with:
+  *  `sudo update-alternatives --config gcc  # select the option with the latest gcc`
+  *  `sudo update-alternatives --config g++  # select the option with the latest g++`
+  
+  If it says that you have no alternatives, you can add them (check the latest version of gcc and g++ installed by writting gcc in the console and pressing tab). For example for gcc-9:
+  * `sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9`
+  * `sudo update-alternatives --config gcc`
 
 ### Building the Project
 
@@ -42,7 +56,7 @@ This code is provided as a experimental implementation for testing purposes and 
 
 3. Call `make` in the root directory to compile all dependencies, tests, and examples and create the executables: **psi.exe** (used for benchmarking) and **demo.exe** (a small demonstrator for intersecting email addresses).
 
-Please note that downloading this project as ZIP file will yield compilation errors, since the Miracl library is included as external project. To solve this, download the Miracl sources in commit version `cff161b` (found [here](https://github.com/CertiVox/Miracl/tree/cff161bad6364548b361b63938a988db23f60c2a) and extract the contents of the main folder in `src/externals/Miracl`. Then, continue with steps 2 and 3.
+Please note that if you downloaded this project as ZIP file instead of cloning with git, you will get compilation errors, since the Miracl library is included as external project. To solve this, download the Miracl sources in commit version `cff161b` (found [here](https://github.com/CertiVox/Miracl/tree/cff161bad6364548b361b63938a988db23f60c2a) and extract the contents of the main folder in `src/externals/Miracl`. Then, continue with steps 2 and 3.
 
 ### Executing the Code
 
