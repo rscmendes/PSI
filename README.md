@@ -45,6 +45,39 @@ This code is provided as a experimental implementation for testing purposes and 
   * `sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-9`
   * `sudo update-alternatives --config gcc`
 
+### Running on macOS (Apple Silicon / M-series) with Docker
+---
+
+The code relies on x86 AES-NI/SSE intrinsics and a Linux build of Miracl, so it does not compile natively on an M-series Mac. The included `Dockerfile` provides an x86_64 Ubuntu 18.04 environment (gcc-7) that runs under emulation. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and make sure it is running.
+
+1. Clone the repository with its submodules and enter it:
+	```
+	git clone --recursive https://github.com/rscmendes/PSI
+	cd PSI
+	```
+
+2. Build the image and compile the project (the source folder is mounted into the container, so the executables appear in your local folder):
+	```
+	docker build -t psi-env .
+	docker run --rm --platform linux/amd64 -v "$PWD":/psi psi-env make
+	```
+
+3. Open a shell in the container in the first terminal and run one party:
+	```
+	docker run -it --rm --platform linux/amd64 -v "$PWD":/psi --name psi psi-env bash
+	./demo.exe -r 0 -p 0 -f sample_sets/emails_alice.txt
+	```
+
+4. In a second terminal, attach to the same container and run the other party:
+	```
+	docker exec -it psi bash
+	./demo.exe -r 1 -p 0 -f sample_sets/emails_bob.txt
+	```
+
+For the server-aided protocol (`-p 1`), three processes are needed: `-r 0` is the helper server, and both Alice and Bob run with `-r 1` (open a third terminal with `docker exec -it psi bash`).
+
+You can edit the sources on macOS and rebuild by running `make` inside the container. Since the binaries run under x86 emulation, timings are slower than on native hardware.
+
 ### Building the Project
 
 1. Clone a copy of the main git repository and its submodules by running:
