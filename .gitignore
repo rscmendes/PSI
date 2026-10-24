@@ -11,3 +11,5 @@
 README.html
 docs/*
 *.~
+*.pcap
+*.pcapng

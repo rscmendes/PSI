@@ -78,6 +78,12 @@ For the server-aided protocol (`-p 1`), three processes are needed: `-r 0` is th
 
 You can edit the sources on macOS and rebuild by running `make` inside the container. Since the binaries run under x86 emulation, timings are slower than on native hardware.
 
+To inspect the network traffic between the parties, capture it inside the container with `tcpdump` (stop it with Ctrl+C after the run) and open the resulting file in Wireshark on the host:
+```
+mkdir -p captures
+tcpdump -i lo -U -w /psi/captures/p0_naive.pcap tcp port 7766
+```
+
 ### Building the Project
 
 1. Clone a copy of the main git repository and its submodules by running:
